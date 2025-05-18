@@ -61,10 +61,10 @@ function App() {
     formData.append('job_description', jdFile);
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/upload', formData);
+      const response = await axios.post('http://127.0.0.1:8000/upload', formData);
       if (response.data.success) {
         setInterviewStarted(true);
-        const aiStart = await axios.post('http://127.0.0.1:5000/start_interview');
+        const aiStart = await axios.post('http://127.0.0.1:8000/start_interview');
         setChat([{ role: 'assistant', content: aiStart.data.question }]);
         speakText(aiStart.data.question);
       } else {
@@ -89,7 +89,7 @@ function App() {
     setLiveTranscript('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/interview', {
+      const response = await axios.post('http://127.0.0.1:8000/interview', {
         question: messageToSend,
         history: updatedChat,
       });
@@ -104,7 +104,7 @@ function App() {
 
   const endInterview = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/end_interview', {
+      const response = await axios.post('http://127.0.0.1:8000/end_interview', {
         history: chat,
       });
       setFeedback(response.data.feedback);
