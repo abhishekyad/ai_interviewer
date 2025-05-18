@@ -17,3 +17,4 @@ Now, for frontend:
 cd frontend
 npm install
 npm start
+ frontend is running at http://localhost:3000
