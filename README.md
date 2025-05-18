@@ -1,6 +1,12 @@
-run the following commands inside backend directory
-
+run the following commands
+cd ai_interviewer-main
+cd backend
+if needed, create a python virtual environment:
+python3 -m venv venv
+source venv/bin/activate
 pip install flask openai flask-cors python-dotenv fastapi uvicorn supabase python-multipart requests axios
+
+now open .env file and paste your SUPABASE credentials and your OPENROUTER API KEY. Save and close.
 
 uvicorn app:app --reload
 
